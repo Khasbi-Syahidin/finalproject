@@ -199,7 +199,11 @@ function TambahProduk({ buku }) {
                                                 className="bg-indigo-700 rounded hover:bg-indigo-600 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-white lg:w-1/3 w-full "
                                                 type="submit"
                                             >
-                                                Edit Buku
+                                                <Link
+                                                    href={`/dashboard/editproduct/${buku.id}`}
+                                                >
+                                                    Edit Buku
+                                                </Link>
                                             </button>
                                             {/* <hr className="h-[1px] bg-gray-100 my-14" /> */}
                                             {/* <PrimaryButton>

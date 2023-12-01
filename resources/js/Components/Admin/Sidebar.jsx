@@ -277,7 +277,7 @@ export default function Sidebar({ showMenu, page }) {
                     </li>
                     <li className="mt-0.5 w-full">
                         <Link
-                            href={route("admin.user")}
+                            href={route("admin.users")}
                             className={`${
                                 activeButton === 5 ? "shadow-soft-2xl" : ""
                             } py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors`}

@@ -1,158 +1,216 @@
-import React from 'react'
+// import React from 'react'
+import React, { useState } from "react";
+import { Link } from "@inertiajs/react";
+// import Head from "next/head";
+export default function TableBuku({ users }) {
+    const [show, setShow] = useState(null);
 
-export default function TableUser() {
+
     return (
-        <div className="w-full pb-6 mx-auto">
-        <div className="flex flex-wrap">
-            <div className="w-full max-w-full mt-6 md:flex-none">
-                <div className="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-                    <div className="flex-auto p-3 px-0 pb-2">
-                        <div className="overflow-x-auto">
-                            <table className="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
-                                <thead className="align-bottom">
-                                    <tr>
-                                        <th className="px-6 py-3 font-bold tracking-normal text-left uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                            Nama User
-                                        </th>
-                                        <th className="px-6 py-3 pl-2 text-center font-bold tracking-normal uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                            Email
-                                        </th>
-                                        <th className="px-6 py-3 font-bold tracking-normal text-center uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                            Gender
-                                        </th>
-                                        <th className="px-6 py-3 font-bold tracking-normal text-center uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div className="flex px-2 py-1">
-                                                <div className="flex flex-col justify-center">
-                                                    <h6 className="mb-0 text-sm ml-2 leading-normal">
-                                                        Khasbi Syahidin
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                            khasbisyahidin@gmail.com
-                                        </td>
-                                        <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                            Laki-laki
-                                        </td>
-                                        <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div className="flex justify-center">
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal mr-4"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 512 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-                                                    </svg>
-                                                </a>
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal mr-4"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 512 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                    </svg>
-                                                </a>
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 448 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div className="flex px-2 py-1">
-                                                <div className="flex flex-col justify-center">
-                                                    <h6 className="mb-0 text-sm ml-2 leading-normal">
-                                                        Fatih Abiyyi Arfat
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                            fatihabiyyiarfat@gmail.com
-                                        </td>
-                                        <td className="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                            Perempuan
-                                        </td>
-                                        <td className="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div className="flex justify-center">
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal mr-4"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 512 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-                                                    </svg>
-                                                </a>
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal mr-4"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 512 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                                                    </svg>
-                                                </a>
-                                                <a
-                                                    className="flex mb-0 text-sm leading-normal"
-                                                    href=""
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        height="1.3em"
-                                                        viewBox="0 0 448 512"
-                                                        fill="currentColor"
-                                                    >
-                                                        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <>
+            {/* Table */}
+            <div className="w-full sm:px-4">
+                <div className="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
+                    <div className="sm:flex items-center justify-between">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">
+                            All Users
+                        </p>
+                        <div>
+                            <Link href={route("admin.tambah.user")}>
+                            <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                                <p className="text-sm font-medium leading-none text-white">
+                                    Tambah User
+                                </p>
+                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
+                <div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
+                    <table className="w-full whitespace-nowrap">
+                        <thead>
+                            <tr className="h-16 w-full text-sm leading-none text-gray-800">
+                                <th className="font-normal text-left pl-4">
+                                    Nama dan Email
+                                </th>
+                                <th className="font-normal text-left pl-20">
+                                    TTL
+                                </th>
+                                <th className="font-normal text-left pl-12">
+                                    NISN
+                                </th>
+                                <th className="font-normal text-left pl-16">
+                                    Gender
+                                </th>
+                                <th className="font-normal text-left pl-20">
+                                    Phone
+                                </th>
+                                <th className="font-normal text-left pl-12">
+                                    Role
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="w-full">
+                            {users.map((user) => (
+                                <tr
+                                    key={user.id}
+                                    className="h-20 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100"
+                                >
+                                    <td className="pl-4 cursor-pointer">
+                                        <div className="flex items-center">
+                                            <div className="w-10 h-10">
+                                                {/* <img className="w-full h-full" src="/storage/image/buku/1700966564.png" alt="Book" /> */}
+                                                {/* <img
+                                                    className="w-full h-full"
+                                                    src={`/storage/image/buku/${user.image}`}
+                                                    alt="Book"
+                                                /> */}
+                                            </div>
+                                            <div className="pl-4 my-auto">
+                                                <p className="font-medium">
+                                                    {user.name}
+                                                </p>
+                                                <p className="text-xs leading-3 text-gray-600 pt=1">
+                                                    {user.email}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="pl-20">
+                                        <p className="font-medium">
+                                            {user.TTL}
+                                        </p>
+                                    </td>
+                                    <td className="pl-12">
+                                        <p className="text-sm font-medium leading-none text-gray-800">
+                                            {user.NISN}
+                                        </p>
+                                    </td>
+                                    <td className="pl-16">
+                                        <p className="font-medium">
+                                            {user.gender}
+                                        </p>
+                                        {/* <p className="text-xs leading-3 text-gray-600 mt-2">
+                                            {user.price}
+                                        </p> */}
+                                    </td>
+                                    <td className="pl-20">
+                                        <p className="font-medium">
+                                            {user.phone}
+                                        </p>
+                                    </td>
+                                    <td className="pl-12">
+                                        <p className="font-medium">
+                                            {user.role === "1" ? "Admin" : "User"}
+                                            {/* {user.role} */}
+                                        </p>
+                                    </td>
+                                    <td className="px-7 2xl:px-0">
+                                        {show === user.id ? (
+                                            <button
+                                                onClick={() => setShow(null)}
+                                                className="focus:outline-none pl-7"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width={20}
+                                                    height={20}
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                    <path
+                                                        d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                    <path
+                                                        d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        ) : (
+                                            <button
+                                                onClick={() => setShow(user.id)}
+                                                className="focus:outline-none pl-7"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width={20}
+                                                    height={20}
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                    <path
+                                                        d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                    <path
+                                                        d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z"
+                                                        stroke="#A1A1AA"
+                                                        strokeWidth="1.25"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        )}
+                                        {show === user.id && (
+                                            <div className="dropdown-content bg-white shadow w-24 absolute z-30 right-0 mr-6">
+                                                <Link
+                                                    href={`/dashboard/product/${user.id}`}
+                                                    method="get"
+                                                >
+                                                    <div className="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                                        <p>Detail</p>
+                                                    </div>
+                                                </Link>
+                                                <Link
+                                                    href={`/dashboard/editproduct/${user.id}`}
+                                                >
+                                                    <div className="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                                        <p>Edit</p>
+                                                    </div>
+                                                </Link>
+                                                <Link
+                                                    href={`/dashboard/deleteproduct/${user.id}`}
+                                                    method="delete"
+                                                >
+                                                    <div className="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                                        <p>Delete</p>
+                                                    </div>
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </div>
-      )
+        </>
+    );
 }

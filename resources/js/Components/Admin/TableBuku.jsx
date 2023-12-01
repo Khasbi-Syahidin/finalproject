@@ -26,11 +26,13 @@ export default function TableBuku({ bukus }) {
                             All Buku
                         </p>
                         <div>
+                            <Link href={route("admin.form.tambah.buku")}>
                             <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
                                 <p className="text-sm font-medium leading-none text-white">
                                     Tambah Buku
                                 </p>
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

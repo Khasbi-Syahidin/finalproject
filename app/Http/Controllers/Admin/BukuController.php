@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class BukuController extends Controller
@@ -14,7 +15,8 @@ class BukuController extends Controller
 
     public function allbuku(){
         $bukus = Book::all();
-        return Inertia::render('PanelAdmin/Dashboard', ['bukus' => $bukus]);
+        $users = User::all();
+        return Inertia::render('PanelAdmin/Dashboard', ['bukus' => $bukus, 'users' => $users]);
     }
     // public function show($id){
     //     $buku = Book::find($id);
@@ -116,7 +118,9 @@ class BukuController extends Controller
         ]);
 
         // Redirect atau berikan respon sukses
-        return redirect()->back()->with('success', 'Buku ditambahkan');
+        // return redirect()->back()->with('success', 'Buku ditambahkan');
+        return to_route('admin.product');
+
     }
 
    public function destroy(Book $id){
@@ -136,5 +140,9 @@ class BukuController extends Controller
 
     // dd($buku);
     //    return redirect('dashboard/product')->with('success', 'Data berhasil Dihapus');
+   }
+
+   public function formtambahbuku(){
+    return Inertia::render('PanelAdmin/FormTambahBuku');
    }
 }

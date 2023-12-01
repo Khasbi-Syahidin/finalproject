@@ -13,29 +13,31 @@ use Illuminate\Foundation\Application;
 class HomeController extends Controller
 {
     public function index()
-    {
-        $bukus = Book::all();
-        $carousels = Carousel::all();
-        $bukuterbaru = Book::latest()->take(8)->get();
-        $rekomendasiBuku = Book::all()
-            ->random() // Mengambil hasil secara acak
-            ->limit(20)
-            ->get();
-        // dd($carousels);
+{
+    $bukus = Book::all();
+    $carousels = Carousel::all();
+    $bukuterbaru = Book::latest()->take(8)->get();
 
-        // dd($buku);
+    // Pemeriksaan apakah ada setidaknya satu buku sebelum mencoba mengambil item secara acak
+    $bukuCount = Book::count();
+    $rekomendasiBuku = [];
 
-        return Inertia::render('Home', [
-            'carousels' => $carousels,
-            'bukuterbarus' => $bukuterbaru,
-            'rekomendasiBuku' => $rekomendasiBuku,
-            'bukus' => $bukus,
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-        ]);
+    if ($bukuCount > 0) {
+        // Menggunakan metode inRandomOrder untuk mendapatkan data acak langsung dari database
+        $rekomendasiBuku = Book::inRandomOrder()->limit(20)->get();
     }
+
+    return Inertia::render('Home', [
+        'carousels' => $carousels,
+        'bukuterbarus' => $bukuterbaru,
+        'rekomendasiBuku' => $rekomendasiBuku,
+        'bukus' => $bukus,
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+}
 
     public function detailbuku($id)
     {

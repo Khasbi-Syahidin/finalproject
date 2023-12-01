@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function DataBaru({dataBukus}) {
+export default function DataBaru({dataBukus, users}) {
 
-    console.log(dataBukus);
+    // console.log(dataBukus);
     return (
         <>
             <div className="w-full">
@@ -39,31 +39,6 @@ export default function DataBaru({dataBukus}) {
                                     <div className="flex-none w-2/3 max-w-full px-3">
                                         <div>
                                             <h5 className="mb-0 font-bold text-xl">
-                                                13
-                                            </h5>
-                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal">
-                                                User Baru
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="px-3 text-right basis-1/3">
-                                        <div className="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                                            <i className="fas fa-user text-lg relative top-3.5 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* card3 */}
-                    <div className="w-full max-w-full px-3 mb-4 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-                        <div className="relative flex flex-col min-w-0 break-words bg-white shadow-soft-2xl rounded-2xl bg-clip-border">
-                            <div className="flex-auto p-4">
-                                <div className="flex flex-row -mx-3">
-                                    <div className="flex-none w-2/3 max-w-full px-3">
-                                        <div>
-                                            <h5 className="mb-0 font-bold text-xl">
                                                 15
                                             </h5>
                                             <p className="mb-0 font-sans text-sm font-semibold leading-normal">
@@ -80,6 +55,32 @@ export default function DataBaru({dataBukus}) {
                             </div>
                         </div>
                     </div>
+
+                    {/* card3 */}
+                    <div className="w-full max-w-full px-3 mb-4 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+                        <div className="relative flex flex-col min-w-0 break-words bg-white shadow-soft-2xl rounded-2xl bg-clip-border">
+                            <div className="flex-auto p-4">
+                                <div className="flex flex-row -mx-3">
+                                    <div className="flex-none w-2/3 max-w-full px-3">
+                                        <div>
+                                            <h5 className="mb-0 font-bold text-xl">
+                                                {users.length}
+                                            </h5>
+                                            <p className="mb-0 font-sans text-sm font-semibold leading-normal">
+                                                Total Users
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="px-3 text-right basis-1/3">
+                                        <div className="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                            <i className="fas fa-user text-lg relative top-3.5 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     {/* card4 */}
                     <div className="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('role')->default(0);
             $table->string('NISN')->nullable();
             $table->date('TTL')->nullable();
-            $table->string('telp')->nullable();
+            // $table->string('telp')->nullable();
             $table->string('alamat')->nullable();
             $table->string('gender')->nullable();
             $table->binary('image')->nullable();

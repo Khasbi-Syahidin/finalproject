@@ -23,7 +23,7 @@ class Book extends Model
 
     public function user()
     {
-        return $this->belongsTo(Customer::class, 'user_id');
+        return $this->belongsToMany(User::class);
     }
     public function pembelian()
     {

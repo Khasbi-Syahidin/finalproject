@@ -4,8 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BukuController;
 use App\Http\Controllers\Admin\CarouselController;
-
-
+use App\Http\Controllers\DataUser;
 
 Route::get('/', [BukuController::class, 'allbuku'])->name('dashboard');
 
@@ -23,9 +22,6 @@ Route::get('/transaksi', function () {
 })->name('transaksi');
 
 
-Route::get('/user', function () {
-    return Inertia::render('PanelAdmin/User');
-})->name('user');
 
 Route::get('/ladingpage', function () {
     return Inertia::render('Ladingpage');
@@ -50,10 +46,17 @@ Route::delete('/deleteproduct/{id}', [BukuController::class, 'destroy'])->name('
 
 Route::post('/tambahbuku', [BukuController::class, 'tambahbuku'])->name('tambahbuku');
 
-Route::post('/tambahbuku', [BukuController::class, 'tambahbuku'])->name('tambahbuku');
+Route::get('/formtambahbuku', [BukuController::class, 'formtambahbuku'])->name('form.tambah.buku');
 
 
 
 ///Carousel
 
 Route::post('/updatecarousel', [CarouselController::class, 'update'])->name('update.carousel');
+
+
+//Data users
+
+Route::get('/users', [DataUser::class, 'index'])->name('users');
+
+Route::get('/tambahuser', [DataUser::class, 'create'])->name('tambah.user');
