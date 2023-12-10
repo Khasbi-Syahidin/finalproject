@@ -10,13 +10,13 @@ import React from 'react'
 // import GalaxyBackground from '@/Components/User/GalaxyBackground';
 
 
-export default function Home({auth, buku, rekomendasiBuku}) {
+export default function Home({ buku, rekomendasiBuku, kode}) {
     // console.log(bukuterbarus);
     return (
         <>
         <div className="flex-col">
         <Navbar />
-        <DetailBuku buku={buku}/>
+        <DetailBuku buku={buku} kode={kode}/>
         {/* <GalaxyBackground /> */}
         {/* <Hero auth={auth} carousels={carousels} /> */}
         {/* <ProdukTerbaru bukuterbarus={bukuterbarus} /> */}

@@ -22,20 +22,23 @@ export default function Sidebar({ showMenu, page }) {
 
     // ... (lanjutkan dengan logika Anda)
 
-
-
-
     return (
         <aside
-  className={`${
-    showMenu ? "block shadow-md backdrop-blur-xl" : "hidden"
-  } max-w-62.5 xl:block lg:block ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased transition-transform duration-200 xl:left-0 xl:bg-transparent ease-in-out ${
-    showMenu ? "shadow-md backdrop-blur-md" : ""
-  }`}
->
+            className={`${
+                showMenu ? "block shadow-md backdrop-blur-xl" : "hidden"
+            } max-w-62.5 xl:block lg:block ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased transition-transform duration-200 xl:left-0 xl:bg-transparent ease-in-out ${
+                showMenu ? "shadow-md backdrop-blur-md" : ""
+            }`}
+        >
             {/* <aside className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-50 xl:bg-transparent"> */}
             <div className="h-12 flex justify-center">
-                <h5>PerpusKu</h5>
+                <div className="flex pl-3 items-center mb-6 xl:mb-0 lg:mb-0 justify-center">
+                    <img
+                        src={`/storage/image/logo_perpusku2.png`}
+                        alt=""
+                        className="w-20 my-auto drop-shadow-xl"
+                    />
+                </div>
             </div>
 
             <hr className="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
@@ -330,7 +333,7 @@ export default function Sidebar({ showMenu, page }) {
                             </span>
                         </Link>
                     </li>
-                    <li className="mt-0.5 w-full">
+                    {/* <li className="mt-0.5 w-full">
                         <Link
                             href={route("admin.dashboard")}
                             // onClick={() => buttonSidebar(6)}
@@ -385,10 +388,12 @@ export default function Sidebar({ showMenu, page }) {
                                 Form Pengaduan
                             </span>
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="mt-0.5 w-full">
                         <Link
-                            method="post" href={route('logout')} as="button"
+                            method="post"
+                            href={route("logout")}
+                            as="button"
                             className={`${
                                 activeButton === 7 ? "shadow-soft-2xl" : ""
                             } py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors`}

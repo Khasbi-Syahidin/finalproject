@@ -6,36 +6,38 @@ use Carbon\Carbon;
 use App\Models\Book;
 use App\Models\User;
 use Inertia\Inertia;
-use App\Models\Pembelian;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateBuyRequest;
-use App\Http\Requests\ConfirmBuyRequest;
+use App\Http\Requests\CreatePeminjamanRequest;
+use App\Http\Requests\ConfirmPeminjamanRequest;
+// use App\Http\Requests\ConfirmPeminjamanRequest;
 
-class BuyController extends Controller
+class PeminjamanController extends Controller
 {
     public function generateCode($nomor = '')
     {
         $now = Carbon::now();
         $year = $now->format('y');
         $month = $now->month;
-        $count = Pembelian::count();
-        $last = Pembelian::orderByDesc('id')->first();
+        $count = Peminjaman::count();
+        $last = Peminjaman::orderByDesc('id')->first();
 
         if ($count == 0) {
             $order = 100001;
-            $nomor = 'BL' . $year . $month . $order;
+            $nomor = 'PB' . $year . $month . $order;
         } else {
             $order = (int)substr($last->nomor, -6) + 1;
-            $nomor = 'BL' . $year . $month . $order;
+            $nomor = 'PB' . $year . $month . $order;
         }
 
-        $checkByNomor = Pembelian::where('nomor', $nomor)->first();
+        $checkByNomor = Peminjaman::where('nomor', $nomor)->first();
         if (!empty($checkByNomor)) {
             $order = (int)substr($checkByNomor->nomor, -6) + 1;
-            $nomor = 'BL' . $year . $month . $order;
+            $nomor = 'PB' . $year . $month . $order;
             // Recursif to this function until the number not duplicate
             return $this->generateCode($nomor);
         }
@@ -45,14 +47,14 @@ class BuyController extends Controller
         return $nomor;
     }
 
-    public function create(CreateBuyRequest $request)
+    public function create(CreatePeminjamanRequest $request)
     {
         try {
             DB::beginTransaction();
             $nomor = $this->generateCode();
             $request = array_merge($request->validated(), ['nomor' => $nomor, 'user_id' => auth()->id()]);
             // Log::info($request['buku_id']);
-            Pembelian::create($request);
+            Peminjaman::create($request);
             DB::commit();
             $buku_id = $request['buku_id'];
             $buku = Book::find($buku_id);
@@ -76,15 +78,24 @@ class BuyController extends Controller
         }
     }
 
-    public function confirm(ConfirmBuyRequest $request)
+    public function confirm(ConfirmPeminjamanRequest $request)
     {
-
         log::info($request->all());
         try {
             DB::beginTransaction();
-            $data = Pembelian::where('nomor', $request['nomor'])->firstOrFail();
+
+            $data = Peminjaman::where('nomor', $request['nomor'])->firstOrFail();
+
+            $awalPinjam = Carbon::now();
+            $batasWaktu = $awalPinjam->copy()->addDays(7);
             Book::where('id', $data->buku_id)->decrement('stock');
-            $data->update(['status' => 'terbayar']);
+
+            $data->update([
+                'status' => 'sedang dipinjam',
+                'awal_pinjam' => $awalPinjam,
+                'batas_waktu' => $batasWaktu,
+            ]);
+
             DB::commit();
 
             // return Inertia::render('PanelAdmin/Transaksi');
@@ -96,11 +107,12 @@ class BuyController extends Controller
         }
     }
 
-    public function showConfirmationForm(ConfirmBuyRequest $request)
+
+    public function showConfirmationForm(ConfirmPeminjamanRequest $request)
     {
         try {
             $nomor = $request['nomor'];
-            $data = Pembelian::where('nomor', $nomor)->firstOrFail();
+            $data = Peminjaman::where('nomor', $nomor)->firstOrFail();
 
             $user = User::find($data->user_id);
             $buku = Book::find($data->buku_id);
@@ -112,6 +124,7 @@ class BuyController extends Controller
                 'nama_buku' => $buku->nama_buku,
                 'kategory' => $buku->kategori,
                 'status' => $buku->status,
+                'statusPeminjaman' => $data->status,
                 'total' => $data->total,
                 'nomor' => $request->nomor,
             ];
@@ -126,46 +139,30 @@ class BuyController extends Controller
         }
     }
 
-    // public function confirm(ConfirmBuyRequest $request)
-    // {
-    //     try {
-    //         DB::beginTransaction();
-    //         $data = Pembelian::where('nomor', $request['nomor'])->firstOrFail();
 
-    //         // Lakukan validasi data atau sinkronisasi sesuai kebutuhan Anda
-    //         // ...
+    //Cofirm Dikembalikan
 
-    //         // Jika data valid dan sinkron, ubah status
-    //         $data->update(['status' => 'terbayar']);
-
-    //         DB::commit();
-
-    //         // Redirect ke halaman setelah konfirmasi
-    //         return redirect()->route('home')->with('success', 'Konfirmasi berhasil');
-    //     } catch (\Throwable $th) {
-    //         DB::rollBack();
-    //         throw $th;
-    //     }
-    // }
-
-
-    public function getIdForCanceling()
+    public function confirmPengembalian(ConfirmPeminjamanRequest $request)
     {
-        $data = Pembelian::whereraw('TIMESTAMPDIFF(HOUR, created_at, NOW()) >= maxtime')
-            ->where('status', 'belum terbayar')
-            ->pluck('id')
-            ->toArray();
-        return $data;
-    }
-
-    public function cancel($ids)
-    {
+        // dd($request->all());
         try {
             DB::beginTransaction();
-            $data = Pembelian::whereIn('id', $ids);
-            $data->update(['status' => 'terbatalkan']);
+
+            $data = Peminjaman::where('nomor', $request['nomor'])->firstOrFail();
+
+            $waktuSekarang = Carbon::now();
+
+            $data->update([
+                'status' => 'sudah dikembalikan',
+                'waktu_pengembalian' => $waktuSekarang,
+            ]);
+
+            Book::where('id', $data->buku_id)->increment('stock');
+
             DB::commit();
-            // return to_route('users.index');
+
+            // return Inertia::render('PanelAdmin/Transaksi');
+            return redirect()->route('admin.transaksi');
             // TODO: return page
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -173,12 +170,60 @@ class BuyController extends Controller
         }
     }
 
-    // public function chat(Request $request)
+
+
+
+
+
+    // Ganti status setelah lebih dari 7 hari
+
+    public function getIdForCanceling()
+    {
+        $data = Peminjaman::whereRaw('TIMESTAMPDIFF(HOUR, created_at, NOW()) >= maxtime')
+            ->where('status', 'sedang dipinjam')
+            ->pluck('id')
+            ->toArray();
+
+        return $data;
+    }
+
+    public function cancel($ids)
+    {
+        try {
+            DB::beginTransaction();
+            $data = Peminjaman::whereIn('id', $ids);
+            $data->update(['status' => 'terbatalkan']);
+            DB::commit();
+
+            // TODO: Redirect atau return response sesuai kebutuhan
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
+    }
+
+    // public function confirm(ConfirmPeminjamanRequest $request)
     // {
-    //     $chat = new Chat();
-    //     $chat->user_id = Auth::user()->id;
-    //     $chat->chat = $request->chat;
-    //     $chat->pengaduan_id = $request->input('pengaduan_id');
-    //     $chat->save();
+    //     try {
+    //         DB::beginTransaction();
+    //         $data = Peminjaman::where('nomor', $request['nomor'])->firstOrFail();
+
+    //         $data->update([
+    //             'status' => 'sedang dipinjam',
+    //             'awal_pinjam' => Carbon::now(),
+    //             'batas_waktu' => Carbon::now()->addHours($data->maxtime), // Menggunakan maxtime
+    //         ]);
+    //         DB::commit();
+
+    //         // TODO: Redirect atau return response sesuai kebutuhan
+    //     } catch (\Throwable $th) {
+    //         DB::rollBack();
+    //         throw $th;
+    //     }
     // }
+
+
+
+
 }

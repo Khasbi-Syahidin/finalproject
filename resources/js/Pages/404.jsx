@@ -11,7 +11,7 @@ const Error12 = () => {
                         <img className="md:hidden" src="https://i.ibb.co/RgYQvV7/undraw-page-not-found-su7k-1.png" alt="" />
                         <h1 className="px-4 pt-8 pb-4 text-center text-5xl font-bold leading-10 text-gray-800">Lagi Cari  Apa?</h1>
                         <p className="px-4 pb-10 text-base leading-none text-center text-gray-600">Mendingan Login Aja dulu</p>
-                        <Link href="/home">
+                        <Link href="/">
                         <button className="mx-4 h-10 w-44 border rounded-md text-white text-base bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-indigo-800">Ke Halaman Home</button>
                         </Link>
                     </div>

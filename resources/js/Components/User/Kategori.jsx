@@ -72,13 +72,11 @@ export default function Kategori({ bukus }) {
                                     key={buku.id}
                                     href={`/userdetailbuku/${buku.id}`}
                                 >
-                                    <div className="w-44 h-fit shadow transform transition-transform duration-300 hover:scale-105">
-                                        <div>
-                                            <img
-                                                src={`/storage/image/buku/${buku.image}`}
-                                                className="w-full"
-                                            />
-                                        </div>
+                                    <div className="w-44 h-fit shadow z-4 duration-300 hover:scale-105">
+                                    <img
+                                            src={`/storage/image/buku/${buku.image}`}
+                                            className="w-full h-full aspect-square"
+                                        />
                                         <div className="bg-white mx-auto">
                                             <div className="px-2">
                                                 <div className="flex items-center">

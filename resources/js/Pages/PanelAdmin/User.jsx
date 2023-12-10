@@ -7,7 +7,7 @@ import { Link } from '@inertiajs/react';
 import TableUser from '@/Components/Admin/TableUser';
 import FooterAdmin from '@/Components/Admin/FooterAdmin';
 
-const User = ({users}) => {
+const User = ({users, auth}) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleSidebar = () => {
@@ -16,7 +16,7 @@ const User = ({users}) => {
 
     return (
       <div>
-        <Navbar toggleSidebar={toggleSidebar} />
+        <Navbar toggleSidebar={toggleSidebar} auth={auth}/>
         <Sidebar showMenu={showMenu} page={5} />
         <main className="ease-soft-in-out xl:ml-68.5 relative h-full rounded-xl transition-all duration-200 px-2 py-6 md:px-4 lg:px-6">
                 {/* <DetailUser /> */}

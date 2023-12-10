@@ -3,7 +3,9 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BukuController;
+use App\Http\Controllers\Admin\BuyController;
 use App\Http\Controllers\Admin\CarouselController;
+use App\Http\Controllers\Admin\PeminjamanController;
 use App\Http\Controllers\DataUser;
 
 Route::get('/', [BukuController::class, 'allbuku'])->name('dashboard');
@@ -60,3 +62,18 @@ Route::post('/updatecarousel', [CarouselController::class, 'update'])->name('upd
 Route::get('/users', [DataUser::class, 'index'])->name('users');
 
 Route::get('/tambahuser', [DataUser::class, 'create'])->name('tambah.user');
+
+
+//cek transaksi
+
+// Route::post('/cektransaksi', [BuyController::class, 'confirm'])->name('cektransaksi');
+
+Route::post('/cek/kode', [BuyController::class, 'showConfirmationForm'])->name('cek.kode');
+
+Route::post('/confirm/kode', [BuyController::class, 'confirm'])->name('confirm.kode');
+
+Route::post('/cek/kode/peminjaman', [PeminjamanController::class, 'showConfirmationForm'])->name('cek.kode.peminjaman');
+
+Route::post('/confirm/kode/peminjaman', [PeminjamanController::class, 'confirm'])->name('confirm.kode.peminjaman');
+
+Route::post('/confirm/kode/pengembalian', [PeminjamanController::class, 'confirmPengembalian'])->name('confirm.kode.pengembalian');

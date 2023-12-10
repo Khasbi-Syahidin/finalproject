@@ -48,15 +48,12 @@ const ImageUpload = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto mt-8 p-4 border rounded shadow">
-      <div>
+    <form onSubmit={handleSubmit} className="mx-auto mt-8 p-4  rounded shadow-md">
+      <div clsassName="mb-12">
         <h2>Upload Images</h2>
       </div>
       <div className="mb-4">
-        <label htmlFor="images" className="block text-gray-700 font-bold mb-2">
-          Select Images:
-        </label>
-        <input type="file" id="images" multiple onChange={fileSelectedHandler} className="border rounded py-2 px-3 w-full" />
+        <input type="file" id="images" multiple onChange={fileSelectedHandler} className="shadow-inner rounded-md shadow-gray-200 py-2 px-3 w-full bg-primary" />
       </div>
       <div>
         {files.map((file, index) => (
@@ -69,7 +66,7 @@ const ImageUpload = () => {
         ))}
       </div>
       <div className="flex justify-end mt-4">
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">
+        <button type="submit" className="bg-teal-400 text-white py-2 px-4 rounded hover:bg-teal-500 focus:outline-none">
           Upload
         </button>
       </div>

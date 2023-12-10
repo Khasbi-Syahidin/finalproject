@@ -10,7 +10,7 @@ import FooterAdmin from "@/Components/Admin/FooterAdmin";
 import TambahProduk from "@/Components/Admin/TambahProduk";
 import TableBuku from "@/Components/Admin/TableBuku";
 
-const Product = ({bukus}) => {
+const Product = ({bukus, auth}) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleSidebar = () => {
@@ -19,7 +19,7 @@ const Product = ({bukus}) => {
 
     return (
         <div>
-            <Navbar toggleSidebar={toggleSidebar} />
+            <Navbar toggleSidebar={toggleSidebar} auth={auth}/>
             <Sidebar showMenu={showMenu} page={4} />
             <main className="ease-soft-in-out xl:ml-68.5 relative h-full rounded-xl transition-all duration-200 px-2 py-6 md:px-4 lg:px-4">
                 <TableBuku bukus={bukus} />

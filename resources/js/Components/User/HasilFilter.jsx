@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 
-export default function Rekomendasi({ rekomendasi }) {
+export default function HasilFilter({ bukus, namaPages }) {
     const formatCurrency = (value) => {
         const numericValue = parseFloat(value);
         if (isNaN(numericValue)) {
@@ -20,7 +20,7 @@ export default function Rekomendasi({ rekomendasi }) {
                     <div className="flex flex-wrap items-center justify-center">
                         <div className="mx-auto py-2 flex flex-wrap items-center lg:justify-center">
                             <h5 className="text-center text-text text-xl font-extrabold">
-                                Rekomendasi
+                                {namaPages}
                             </h5>
                             {/* <hr className="text-gray-800" /> */}
                         </div>
@@ -28,7 +28,7 @@ export default function Rekomendasi({ rekomendasi }) {
                         <hr className="bg-secondary w-full opacity-100  h-1.5" />
                         <div className="flex justify-center gap-3  flex-wrap py-5 pb-8">
                             {/* Card 1 */}
-                            {rekomendasi.map((buku) => (
+                            {bukus.map((buku) => (
                                 <Link
                                     key={buku.id}
                                     href={`/userdetailbuku/${buku.id}`}

@@ -12,12 +12,12 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 export default function Hero({ auth, carousels }) {
     // console.log(carousels);
     return (
-        <div className="bg-white ">
-            <div className="flex flex-col lg:flex-row items-stretch justify-between lg:px-0 px-0 lg:py-0 pb-6 2xl:mx-auto lg:bg-white lg:container xl:container">
+        <div className="bg-white -z-1">
+            <div className="flex flex-col lg:flex-row items-stretch justify-between lg:px-0 px-0 lg:py-0 pb-6 2xl:mx-auto lg:bg-white lg:container xl:container -z-1">
                 {/* Mobile */}
 
                 <CarouselProvider
-                    className="relative block sm:hidden"
+                    className="relative block sm:hidden -z-1 "
                     naturalSlideWidth={100}
                     isIntrinsicHeight={true}
                     totalSlides={3}
@@ -25,11 +25,11 @@ export default function Hero({ auth, carousels }) {
                     step={1}
                     infinite={true}
                 >
-                    <div className="js-flickity flex justify-center items-center">
+                    <div className="js-flickity flex justify-center items-center -z-1">
                         <ButtonBack
                             role="button"
                             aria-label="slide backward"
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white  absolute z-30 left-0 ml-8 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+                            className="w-10 h-10 md:w-14 md:h-14 flex justify-center items-center bg-transparent  absolute z-30 left-0 ml-0 focus:outline-none cursor-pointer rounded-r-xl"  style={{ backdropFilter: 'blur(10px)' }}
                             id="prev"
                         >
                             <svg
@@ -48,11 +48,12 @@ export default function Hero({ auth, carousels }) {
                                 />
                             </svg>
                         </ButtonBack>
-                        <Slider>
+                        <Slider  className="-z-1">
                             {carousels.map((carousel) => (
-                                <Slide index={carousel.id} key={carousel.id}>
-                                    <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
-                                        <div className="relative w-full h-full lg:block hidden shadow">
+                                <Slide index={carousel.id} key={carousel.id}
+                                className="-z-1">
+                                    <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full -z-1">
+                                        <div className="relative w-full h-full lg:block hidden shadow p-5">
                                             <img
                                                 src={`/storage/image/carousel/${carousel.image}`}
                                                 alt="sitting area"
@@ -73,7 +74,7 @@ export default function Hero({ auth, carousels }) {
                         <ButtonNext
                             role="button"
                             aria-label="slide forward"
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white  absolute z-30 right-0 mr-8 "
+                            className="w-10 h-10 md:w-14 md:h-14 flex justify-center items-center bg-transparent  absolute z-2 right-0 mr-0 focus:outline-none cursor-pointer rounded-l-xl"  style={{ backdropFilter: 'blur(10px)' }}
                             id="next"
                         >
                             <svg
@@ -96,7 +97,7 @@ export default function Hero({ auth, carousels }) {
                 </CarouselProvider>
 
                 <CarouselProvider
-                    className="relative hidden sm:block lg:w-full flex justify-center items-center py-3 bg-secondar"
+                    className="relative hidden sm:block lg:w-full flex justify-center items-center py-3 bg-secondar -z-1"
                     naturalSlideWidth={100}
                     isIntrinsicHeight={true}
                     totalSlides={3}
@@ -105,7 +106,7 @@ export default function Hero({ auth, carousels }) {
                     infinite={true}
                     currentSlide={1}
                 >
-                    <div className="js-flickity flex justify-center items-center ">
+                    <div className="js-flickity flex justify-center items-center -z-1">
                         <ButtonBack
                             role="button"
                             aria-label="slide backward"
@@ -128,15 +129,15 @@ export default function Hero({ auth, carousels }) {
                                 />
                             </svg>
                         </ButtonBack>
-                        <Slider className="carousel__sliderLarge">
+                        <Slider className="carousel__sliderLarge -z-1">
                             {carousels.map((carousel) => (
 
 
                             <Slide
-                                className="carousel__inner-slideLarge"
+                                className="carousel__inner-slideLarge -z-1"
                                 index={carousel.id} key={carousel.id}
                             >
-                                <div className="gallery-cell w-full h-full">
+                                <div className="gallery-cell w-full h-full  -z-1">
                                     <div className="relative w-full h-full lg:block hidden shadow">
                                         <img
                                             src={`/storage/image/carousel/${carousel.image}`}
@@ -158,7 +159,7 @@ export default function Hero({ auth, carousels }) {
                         <ButtonNext
                             role="button"
                             aria-label="slide forward"
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white  absolute z-30 right-0 mr-8 "
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex justify-center items-center bg-white  absolute z-2 right-0 mr-8 "
                             id="next"
                         >
                             <svg
@@ -190,11 +191,11 @@ export default function Hero({ auth, carousels }) {
                             you'll go
                         </p>
                         {auth.user ? (
-                            <Link
-                                href={route("logout")}
-                                method="post"
-                                as="button"
-                            >
+                            // <Link
+                            //     href={route("logout")}
+                            //     method="post"
+                            //     as="button"
+                            // >
                                 <button className=" hover:text-white text-xs sm:w-auto w-full mt-8 justify-between  focus:outline-none hover:shadow-md font-medium leading-none text-white py-4 px-4 bg-secondary flex items-center cursor-pointer">
                                     Halo {auth.user.name}, Yuk Mulai Petualangan
                                     Literasi!
@@ -228,13 +229,13 @@ export default function Hero({ auth, carousels }) {
                                         </svg>
                                     </div>
                                 </button>
-                            </Link>
+                            // </Link>
                         ) : (
                             <Link
                             href={route("login")}
                             >
-                                <button className=" hover:text-white  sm:w-auto w-full mt-8 text-base justify-between  focus:outline-none hover:shadow-md font-medium leading-none text-white py-4 px-4 bg-secondary flex items-center cursor-pointer">
-                                    Login
+                                <button className=" hover:text-white mt-8 text-base justify-between  focus:outline-none hover:shadow-md font-medium leading-none text-white py-4 px-4 bg-secondary flex items-center cursor-pointer">
+                                    Getting Started
                                     <div className="ml-2 mt-0.5">
                                         <svg
                                             className="fill-stroke"
@@ -301,6 +302,7 @@ export default function Hero({ auth, carousels }) {
                         height: calc(100% - 20px);
                         left: 10px;
                         top: 10px;
+                        z-index: -1;
 
                     }
                 `}

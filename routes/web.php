@@ -31,11 +31,14 @@ Route::get('/login', function () {
     return Inertia::render('Auth/Login');
 })->name('login');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/userdetailbuku/{id}', [HomeController::class, 'detailbuku'])->name('user.buku.detail');
 
+Route::get('/filter', [HomeController::class, 'filterBooks'])->name('filter');
+Route::post('/filter1/', [HomeController::class, 'filterBooks'])->name('filter1');
 
+Route::post('/search', [HomeController::class, 'searchBooks'])->name('search');
 
 //Prefix Admin
 

@@ -1,44 +1,46 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Navbar({ toggleSidebar }) {
+export default function Navbar({ toggleSidebar, auth }) {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
         setIsClicked(!isClicked);
     };
     return (
-        <nav
-        className="relative flex flex-wrap sm:mt-0 mb-1 items-center justify-between px-0 sm:px-0 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
-        >
+        <nav className="relative flex flex-wrap sm:mt-0 mb-1 items-center justify-between px-0 sm:px-0 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start">
             <div className="flex items-center xl:ml-68.5 justify-between w-full sm:px-4 py-1 mx-auto lg:mt-6 md:mt-6 flex-wrap-inherit">
                 <div className="flex items-center mt-2 grow sm:mt-0 lg:flex lg:basis-auto">
                     <div className="relative flex justify-center items-center pr-2 xl:ml-68.5">
                         <img
-                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                            src={
+                                auth.user.image
+                                    ? `/storage/image/user/${auth.user.image}`
+                                    : `/storage/image/user/default-profile.png`
+                            }
                             alt="profile"
-                            className="w-10 rounded-lg"
+                            className="w-10 rounded-md"
                         />
 
-                        <div className="hidden lg:flex flex-col ml-2">
+                        <div className="flex flex-col ml-2">
                             <span className="text-sm font-semibold">
-                                Nama Anda
+                                {auth.user.name}
                             </span>
                             <span className="text-xs text-gray-500">
-                                Jabatan Anda
+                                Admin
                             </span>
                         </div>
                     </div>
-
+{/*
                     <div className="flex items-center md:ml-auto justify-between">
-  <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-    <input
-      type="text"
-      className="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-full md:w-64 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-      placeholder="Type here..."
-    />
-  </div>
-</div>
+                        <div className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                            <input
+                                type="text"
+                                className="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-full md:w-64 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                placeholder="Type here..."
+                            />
+                        </div>
+                    </div> */}
 
                     <ul className="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
                         {/* online builder btn  */}

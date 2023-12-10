@@ -8,7 +8,7 @@ export default function Footer() {
                     <div className="xl:flex lg:flex md:flex pt-6">
                         <div className="w-11/12 xl:w-3/6 lg:w-2/5 mx-auto lg:mx-0 xl:mx-0">
                             <div className="flex items-center mb-6 xl:mb-0 lg:mb-0">
-                                <img src={`/storage/image/logo_perpusku.png`} alt="" className='w-30'/>
+                                <img src={`/storage/image/logo_perpusku1.png`} alt="" className='w-20'/>
                             </div>
                         </div>
                         <div className="w-11/12 xl:w-1/6 lg:w-2/5 mx-auto lg:mx-0 xl:mx-0 pt-3 xl:flex xl:justify-end pl-3 sm:pl-0">

@@ -5,7 +5,6 @@ import { Link } from "@inertiajs/react";
 export default function TableBuku({ users }) {
     const [show, setShow] = useState(null);
 
-
     return (
         <>
             {/* Table */}
@@ -15,15 +14,15 @@ export default function TableBuku({ users }) {
                         <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">
                             All Users
                         </p>
-                        <div>
+                        {/* <div>
                             <Link href={route("admin.tambah.user")}>
-                            <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                                <p className="text-sm font-medium leading-none text-white">
-                                    Tambah User
-                                </p>
-                            </button>
+                                <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                                    <p className="text-sm font-medium leading-none text-white">
+                                        Tambah User
+                                    </p>
+                                </button>
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
@@ -60,11 +59,15 @@ export default function TableBuku({ users }) {
                                         <div className="flex items-center">
                                             <div className="w-10 h-10">
                                                 {/* <img className="w-full h-full" src="/storage/image/buku/1700966564.png" alt="Book" /> */}
-                                                {/* <img
-                                                    className="w-full h-full"
-                                                    src={`/storage/image/buku/${user.image}`}
+                                                <img
+                                                    className="w-full h-full rounded-full"
+                                                    src={
+                                                        user && user.image
+                                                            ? `/storage/image/user/${user.image}`
+                                                            : `/storage/image/user/default-profile.png`
+                                                    }
                                                     alt="Book"
-                                                /> */}
+                                                />
                                             </div>
                                             <div className="pl-4 my-auto">
                                                 <p className="font-medium">
@@ -101,11 +104,13 @@ export default function TableBuku({ users }) {
                                     </td>
                                     <td className="pl-12">
                                         <p className="font-medium">
-                                            {user.role === "1" ? "Admin" : "User"}
+                                            {user.role === "1"
+                                                ? "Admin"
+                                                : "User"}
                                             {/* {user.role} */}
                                         </p>
                                     </td>
-                                    <td className="px-7 2xl:px-0">
+                                    {/* <td className="px-7 2xl:px-0">
                                         {show === user.id ? (
                                             <button
                                                 onClick={() => setShow(null)}
@@ -204,7 +209,7 @@ export default function TableBuku({ users }) {
                                                 </Link>
                                             </div>
                                         )}
-                                    </td>
+                                    </td> */}
                                 </tr>
                             ))}
                         </tbody>
