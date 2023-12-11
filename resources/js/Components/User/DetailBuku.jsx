@@ -95,14 +95,14 @@ const DetailBuku = ({ buku, kode }) => {
                 }}
                 id="modal"
             >
-                <div className="flex items-center justify-center px-4 h-full w-full relative">
-                    <div className="fixed overflow-y-auto w-11/12 h-full py-40 max-w-2xl">
-                        <div className="bg-white rounded-md relative">
+                <div className="relative flex items-center justify-center w-full h-full px-4">
+                    <div className="fixed w-11/12 h-full max-w-2xl py-40 overflow-y-auto">
+                        <div className="relative bg-white rounded-md">
                             <div className="bg-secondary rounded-tl-md rounded-tr-md md:px-10 px-5 py-2.5">
-                                <div className="sm:flex justify-between">
+                                <div className="justify-between sm:flex">
                                     <div>
                                         <img
-                                            src='/storage/image/logo_perpusku1.png'
+                                            src='/image/logo_perpusku1.png'
                                             alt=""
                                             className="w-24"
                                         />
@@ -110,11 +110,11 @@ const DetailBuku = ({ buku, kode }) => {
                                 </div>
                             </div>
 
-                            <div className="pt-6 pb-9 px-10">
+                            <div className="px-10 pt-6 pb-9">
                                 <div className="w-full overflow-x-auto">
                                     <label
                                         htmlFor="link"
-                                        className="text-gray-600 text-xs font-normal"
+                                        className="text-xs font-normal text-gray-600"
                                     >
                                         Silahkan Tunjukkan Kode Uniq Ini Kepada
                                         Admin PerpusKu
@@ -140,12 +140,12 @@ const DetailBuku = ({ buku, kode }) => {
                                             <input
                                                 ref={linkInputRef}
                                                 id="link"
-                                                className="pr-16 text-gray-600 bg-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-4 text-sm border-gray-300 rounded border"
+                                                className="flex items-center w-full h-10 pl-4 pr-16 text-sm font-normal text-gray-600 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:border focus:border-indigo-700"
                                                 value={kode}
                                             />
                                             <button
                                                 onClick={copyToClipboard}
-                                                className="absolute right-0 top-0 transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none bg-indigo-700 rounded-r text-white px-5 h-10 text-sm"
+                                                className="absolute top-0 right-0 h-10 px-5 text-sm text-white transition duration-150 ease-in-out bg-indigo-700 rounded-r hover:bg-indigo-600 focus:outline-none"
                                             >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@ const DetailBuku = ({ buku, kode }) => {
                                                 </svg>
                                             </button>
                                             {isCopied && (
-                                                <div className="absolute -top-1 right-12 mt-2 mr-2 bg-green-500 text-white px-4 py-2 text-xs rounded">
+                                                <div className="absolute px-4 py-2 mt-2 mr-2 text-xs text-white bg-green-500 rounded -top-1 right-12">
                                                     Kode Unik Berhasil Dicopy
                                                 </div>
                                             )}
@@ -177,13 +177,13 @@ const DetailBuku = ({ buku, kode }) => {
                                     <p className="text-xs leading-4 text-gray-500">
                                         Terima kasih telah melakukan transaksi!
                                     </p>
-                                    <div className="flex items-center justify-right mt-5">
+                                    <div className="flex items-center mt-5 justify-right">
                                         <button
                                             onClick={() => {
                                                 setShowKode(false);
                                                 history.back();
                                             }}
-                                            className="px-6 py-3 bg-indigo-700 hover:bg-opacity-80 shadow rounded text-sm text-white"
+                                            className="px-6 py-3 text-sm text-white bg-indigo-700 rounded shadow hover:bg-opacity-80"
                                         >
                                             <Link>Okee</Link>
                                         </button>
@@ -207,14 +207,14 @@ const DetailBuku = ({ buku, kode }) => {
                 }}
                 id="modal"
             >
-                <div className="flex items-center justify-center px-4 h-full w-full relative">
-                    <div className="fixed overflow-y-auto w-11/12 h-full py-40 max-w-2xl">
-                        <div className="bg-white rounded-md relative">
+                <div className="relative flex items-center justify-center w-full h-full px-4">
+                    <div className="fixed w-11/12 h-full max-w-2xl py-40 overflow-y-auto">
+                        <div className="relative bg-white rounded-md">
                             <div className="bg-secondary rounded-tl-md rounded-tr-md md:px-10 px-5 py-2.5">
-                                <div className="sm:flex justify-between">
+                                <div className="justify-between sm:flex">
                                     <div>
                                         <img
-                                            src='/storage/image/logo_perpusku1.png'
+                                            src='/image/logo_perpusku1.png'
                                             alt=""
                                             className="w-24"
                                         />
@@ -225,8 +225,8 @@ const DetailBuku = ({ buku, kode }) => {
                             <div className="pt-3.5 pb-9 px-10">
                                 <div className="w-full overflow-x-auto">
                                     <table className="w-full">
-                                        <thead className="text-xs leading-none text-gray-500 border-b border-gray-200 text-left">
-                                            <p className="text-lg font-bold text-gray-500 mt-2 mb-4">
+                                        <thead className="text-xs leading-none text-left text-gray-500 border-b border-gray-200">
+                                            <p className="mt-2 mb-4 text-lg font-bold text-gray-500">
                                                 {buku.status === "Dijual"
                                                     ? "Detail Pembelian"
                                                     : "Detail Peminjaman"}
@@ -243,8 +243,8 @@ const DetailBuku = ({ buku, kode }) => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left border-b border-gray-200">
-                                                <td className="py-4 w-8/12">
+                                            <tr className="text-xs leading-3 text-left text-gray-800 border-b border-gray-200">
+                                                <td className="w-8/12 py-4">
                                                     {buku.nama_buku}
                                                 </td>
                                                 <td className="py-4"></td>
@@ -255,23 +255,23 @@ const DetailBuku = ({ buku, kode }) => {
                                                         : "Rp.0,-"}
                                                 </td>
                                             </tr>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left">
-                                                <td className="py-4 w-1/2" />
+                                            <tr className="text-xs leading-3 text-left text-gray-800">
+                                                <td className="w-1/2 py-4" />
                                                 <td className="py-4"></td>
-                                                <td className="border-b border-gray-200 py-4">
+                                                <td className="py-4 border-b border-gray-200">
                                                     Pajak
                                                 </td>
-                                                <td className="border-b border-gray-200 py-4 text-right">
+                                                <td className="py-4 text-right border-b border-gray-200">
                                                     Rp.0,-
                                                 </td>
                                             </tr>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left">
-                                                <td className="py-4 w-1/2" />
+                                            <tr className="text-xs leading-3 text-left text-gray-800">
+                                                <td className="w-1/2 py-4" />
                                                 <td className="py-4 font-bold"></td>
                                                 <td className="py-4 font-bold">
                                                     BAYAR
                                                 </td>
-                                                <td className="text-indigo-400 py-4 text-right">
+                                                <td className="py-4 text-right text-indigo-400">
                                                     {buku.status === "Dijual"
                                                         ? formatCurrency(buku.price)
                                                         : "Rp.0,-"}
@@ -288,7 +288,7 @@ const DetailBuku = ({ buku, kode }) => {
                                     <div className="flex items-center justify-between mt-8">
                                         <button
                                             onClick={() => setShowModal(false)}
-                                            className="px-6 py-3 bg-gray-400 hover:bg-gray-500 shadow rounded text-sm text-white"
+                                            className="px-6 py-3 text-sm text-white bg-gray-400 rounded shadow hover:bg-gray-500"
                                         >
                                             Cancel
                                         </button>
@@ -307,7 +307,7 @@ const DetailBuku = ({ buku, kode }) => {
                                                     // sendDataToController();
                                                 }}
                                                 type="submit"
-                                                className="px-6 py-3 bg-indigo-700 hover:bg-opacity-80 shadow rounded text-sm text-white"
+                                                className="px-6 py-3 text-sm text-white bg-indigo-700 rounded shadow hover:bg-opacity-80"
                                             >
                                                 Konfirmasi
                                             </button>
@@ -320,12 +320,12 @@ const DetailBuku = ({ buku, kode }) => {
                 </div>
             </div>
             {/* End Invoice */}
-            <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-4 px-4 ">
-                <div className="flex justify-center items-center lg:flex-row flex-col gap-8">
+            <div className="px-4 py-4 2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 ">
+                <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
                     {/* <!-- Preview Images Div For larger Screen--> */}
 
-                    <div className=" w-full sm:w-96 md:w-8/12  lg:w-6/12 flex lg:flex-row flex-col lg:gap-8 sm:gap-6 gap-4">
-                        <div className=" w-full  bg-gray-100 flex justify-center items-center">
+                    <div className="flex flex-col w-full gap-4  sm:w-96 md:w-8/12 lg:w-6/12 lg:flex-row lg:gap-8 sm:gap-6">
+                        <div className="flex items-center justify-center w-full bg-gray-100 ">
                             <img
                                 src={`/storage/image/buku/${buku.image}`}
                                 alt="Wooden Chair Previw"
@@ -335,31 +335,31 @@ const DetailBuku = ({ buku, kode }) => {
 
                     {/* <!-- Description Div --> */}
 
-                    <div className="  w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-                        <p className=" focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-gray-600">
+                    <div className="items-center w-full  sm:w-96 md:w-8/12 lg:w-6/12">
+                        <p className="text-base font-normal leading-4 text-gray-600  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
                             Buku Dengan Kategori {buku.kategori}
                         </p>
-                        <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 mt-4">
+                        <h2 className="mt-4 text-3xl font-semibold leading-7 text-gray-800 lg:text-4xl lg:leading-9">
                             {buku.nama_buku}
                         </h2>
-                        <div className=" flex flex-row justify-between items-center mt-4">
-                            <p className="font-medium text-sm leading-4 text-gray-600">
+                        <div className="flex flex-row items-center justify-between mt-4 ">
+                            <p className="text-sm font-medium leading-4 text-gray-600">
                                 Stock : {buku.stock} Buku
                             </p>
                         </div>
-                        <p className=" font-normal text-base leading-6 text-gray-600 mt-7">
+                        <p className="text-base font-normal leading-6 text-gray-600  mt-7">
                             {buku.deskripsi}
                         </p>
 
-                        <div className="lg:mt-11 mt-10">
-                            <hr className=" bg-gray-200 w-full my-2" />
-                            {/* <hr className=" bg-gray-200 w-full mt-4" /> */}
-                            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 ">
+                        <div className="mt-10 lg:mt-11">
+                            <hr className="w-full my-2 bg-gray-200 " />
+                            {/* <hr className="w-full mt-4 bg-gray-200 " /> */}
+                            <p className="mt-6 text-xl font-semibold leading-5 lg:text-2xl lg:leading-6 ">
                                 {buku.status === "Dijual" ? (
                                     formatCurrency(buku.price)
                                 ) : (
                                     <div>
-                                        <span className="font-medium text-sm leading-4 text-gray-600">
+                                        <span className="text-sm font-medium leading-4 text-gray-600">
                                             Uang ganti Rugi jika bukunya hilang
                                         </span>
                                         <br /><br />
@@ -368,8 +368,8 @@ const DetailBuku = ({ buku, kode }) => {
                                 )}
                             </p>
 
-                            {/* <div className=" flex flex-row justify-between items-center mt-4">
-                                <p className="font-medium text-sm leading-4 text-gray-600">
+                            {/* <div className="flex flex-row items-center justify-between mt-4 ">
+                                <p className="text-sm font-medium leading-4 text-gray-600">
                                     {buku.status == "Dijual"
                                         ? "Buku Ini Hanya Untuk Dijual"
                                         : "Buku Ini Hanya Untuk Dipinjam"}
@@ -380,14 +380,14 @@ const DetailBuku = ({ buku, kode }) => {
                         {buku.status === "Dijual" ? (
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-secondary w-full py-5 lg:mt-12 mt-6"
+                                className="w-full py-5 mt-6 text-base font-medium leading-4 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-secondary lg:mt-12"
                             >
                                 Beli Sekarang
                             </button>
                         ) : (
                             <button
                                 onClick={() => setShowModal(true)}
-                                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-secondary w-full py-5 lg:mt-12 mt-6"
+                                className="w-full py-5 mt-6 text-base font-medium leading-4 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-secondary lg:mt-12"
                             >
                                 Pinjam Sekarang
                             </button>

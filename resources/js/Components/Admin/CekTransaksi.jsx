@@ -80,14 +80,14 @@ export default function CekTransaksi({ cekData }) {
                 }}
                 id="modal"
             >
-                <div className="flex items-center justify-center px-4 mx-auto h-full w-full relative">
-                    <div className="fixed overflow-y-auto w-11/12 h-full py-40 max-w-2xl m-auto">
-                        <div className="bg-white rounded-md relative">
+                <div className="relative flex items-center justify-center w-full h-full px-4 mx-auto">
+                    <div className="fixed w-11/12 h-full max-w-2xl py-40 m-auto overflow-y-auto">
+                        <div className="relative bg-white rounded-md">
                             <div className="bg-secondary rounded-tl-md rounded-tr-md md:px-10 px-5 py-2.5">
-                                <div className="sm:flex justify-between">
+                                <div className="justify-between sm:flex">
                                     <div>
                                         <img
-                                            src='/storage/image/logo_perpusku.png'
+                                            src='/image/logo_perpusku.png'
                                             alt=""
                                             className="w-24"
                                         />
@@ -98,15 +98,15 @@ export default function CekTransaksi({ cekData }) {
                             <div className="pt-3.5 pb-9 px-10">
                                 <div className="w-full overflow-x-auto">
                                     <table className="w-full">
-                                        <thead className="text-xs leading-none text-gray-500 border-b border-gray-200 text-left">
-                                            <p className="text-lg font-bold text-gray-500 mt-2 mb-4">
+                                        <thead className="text-xs leading-none text-left text-gray-500 border-b border-gray-200">
+                                            <p className="mt-2 mb-4 text-lg font-bold text-gray-500">
                                                 Detail Transaksi
                                             </p>
-                                            <p className="text-base font-bold text-gray-500 mt-2 mb-4">
+                                            <p className="mt-2 mb-4 text-base font-bold text-gray-500">
                                                 Nama :{" "}
                                                 {cekData ? cekData.name : ""}
                                                 <br />
-                                                <span className="text-sm font-bold text-gray-500 mt-2 mb-4">
+                                                <span className="mt-2 mb-4 text-sm font-bold text-gray-500">
                                                     {cekData
                                                         ? cekData.email
                                                         : ""}
@@ -125,8 +125,8 @@ export default function CekTransaksi({ cekData }) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left border-b border-gray-200">
-                                                <td className="py-4 w-8/12">
+                                            <tr className="text-xs leading-3 text-left text-gray-800 border-b border-gray-200">
+                                                <td className="w-8/12 py-4">
                                                     {cekData
                                                         ? cekData.nama_buku
                                                         : ""}
@@ -144,23 +144,23 @@ export default function CekTransaksi({ cekData }) {
                                                         : ""} */}
                                                 </td>
                                             </tr>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left">
-                                                <td className="py-4 w-1/2" />
+                                            <tr className="text-xs leading-3 text-left text-gray-800">
+                                                <td className="w-1/2 py-4" />
                                                 <td className="py-4"></td>
-                                                <td className="border-b border-gray-200 py-4">
+                                                <td className="py-4 border-b border-gray-200">
                                                     Pajak
                                                 </td>
-                                                <td className="border-b border-gray-200 py-4 text-right">
+                                                <td className="py-4 text-right border-b border-gray-200">
                                                     Rp.0,-
                                                 </td>
                                             </tr>
-                                            <tr className="text-xs leading-3 text-gray-800 text-left">
-                                                <td className="py-4 w-1/2" />
+                                            <tr className="text-xs leading-3 text-left text-gray-800">
+                                                <td className="w-1/2 py-4" />
                                                 <td className="py-4 font-bold"></td>
                                                 <td className="py-4 font-bold">
                                                     BAYAR
                                                 </td>
-                                                <td className="text-indigo-400 py-4 text-right">
+                                                <td className="py-4 text-right text-indigo-400">
                                                     {cekData &&
                                                     cekData.status === "Dijual"
                                                         ? cekData.total
@@ -185,7 +185,7 @@ export default function CekTransaksi({ cekData }) {
                                                 setShowModal(false);
                                                 window.history.back();
                                             }}
-                                            className="px-6 py-3 bg-gray-400 hover:bg-gray-500 shadow rounded text-sm text-white"
+                                            className="px-6 py-3 text-sm text-white bg-gray-400 rounded shadow hover:bg-gray-500"
                                         >
                                             Cancel
                                         </button>
@@ -250,16 +250,16 @@ export default function CekTransaksi({ cekData }) {
             </div>
             {/* End Invoice */}
             <div className="px-6 py-6 rounded-md shadow-soft-2xl">
-                <div className="carousel-1 my-3">
+                <div className="my-3 carousel-1">
                     <form className="mx-auto mt-4 rounded " onSubmit={submit}>
                         <label
                             htmlFor="uniqueCode"
-                            className="block text-gray-700 font-bold mb-2"
+                            className="block mb-2 font-bold text-gray-700"
                         >
                             Silahkan nomor unik transaksi disini
                         </label>
                         {/* Input nomor Unik Transaksi */}
-                        <div className="mb-4 flex">
+                        <div className="flex mb-4">
                             <input
                                 required
                                 type="text"
@@ -269,12 +269,12 @@ export default function CekTransaksi({ cekData }) {
                                 onChange={(e) =>
                                     handleChange("nomor", e.target.value)
                                 }
-                                className="w-full border p-2 rounded"
+                                className="w-full p-2 border rounded"
                             />
                             <button
                                 type="submit"
                                 //   onClick={handleSubmit}
-                                className="bg-gray-800 w-12 text-white py-2 px-4 rounded hover:bg-gray-900 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 ml-4"
+                                className="w-12 px-4 py-2 ml-4 text-white bg-gray-800 rounded hover:bg-gray-900 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
                             >
                                 <div className="flex justify-center">
                                     <svg

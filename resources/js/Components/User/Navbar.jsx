@@ -138,17 +138,17 @@ export default function Navbar() {
                                 value={form1Data.search}
                                 onChange={handleForm1Change}
                                 placeholder="Cari Buku atau Penulis"
-                                className="text-sm leading-none bg-secondary text-white focus:outline-none outline-white w-50 h-7 rounded-md border-collapse border-white"
+                                className="text-sm leading-none text-white border-collapse border-white rounded-md bg-secondary focus:outline-none outline-white w-50 h-7"
                             />
                         </form>
                     </div>
-                    <div className="space-x-6 align-center flex">
+                    <div className="flex space-x-6 align-center">
                         <button
                             onClick={() => setShowfilters(!showFilters)}
-                            className="text-white  focus:outline-none focus:ring-2 focus:ring-secondary sm:flex hidden  text-base leading-4 font-normal "
+                            className="hidden text-base font-normal leading-4 text-white focus:outline-none focus:ring-2 focus:ring-secondary sm:flex "
                         >
                             <svg
-                                className=" mr-2"
+                                className="mr-2 "
                                 width="24"
                                 height="24"
                                 viewBox="0 0 24 24"
@@ -241,15 +241,15 @@ export default function Navbar() {
                 </div>
                 {/* For md screen size */}
                 {/* For Dijual screens */}
-                <div className="dark:bg-secondary bg-gray-50 px-6 py-2">
-                    <div className="lg:container mx-auto flex items-center justify-between">
+                <div className="px-6 py-2 dark:bg-secondary bg-gray-50">
+                    <div className="flex items-center justify-between mx-auto lg:container">
                         <img
-                            src='/storage/image/logo_perpusku1.png'
+                            src='/image/logo_perpusku1.png'
                             alt=""
                             className="w-20"
                         />
-                        <div className="justify-end flex items-center space-x-4 xl:space-x-8">
-                            <div className="hidden lg:flex items-center gap-8">
+                        <div className="flex items-center justify-end space-x-4 xl:space-x-8">
+                            <div className="items-center hidden gap-8 lg:flex">
                                 <form onSubmit={handleForm1Submit}>
                                     <input
                                         type="text"
@@ -257,17 +257,17 @@ export default function Navbar() {
                                         value={form1Data.search}
                                         onChange={handleForm1Change}
                                         placeholder="Cari Buku atau Penulis"
-                                        className="text-sm bg-secondary border-collapse border-white text-white placeholder-white dark:placeholder-gray-300 focus:outline-none rounded-md w-72 h-7"
+                                        className="text-sm text-white placeholder-white border-collapse border-white rounded-md bg-secondary dark:placeholder-gray-300 focus:outline-none w-72 h-7"
                                     />
                                 </form>
                             </div>
-                            <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
+                            <div className="items-center hidden space-x-4 lg:flex xl:space-x-8">
                                 <button
                                     onClick={() => setShowfilters(!showFilters)}
-                                    className=" cursor-pointer sm:flex hidden  focus:ring-secondary flex text-base leading-4 font-normal text-white justify-center items-center "
+                                    className="flex items-center justify-center hidden text-base font-normal leading-4 text-white cursor-pointer  sm:flex focus:ring-secondary"
                                 >
                                     <svg
-                                        className=" mr-2 ml-3"
+                                        className="ml-3 mr-2 "
                                         width="28"
                                         height="28"
                                         viewBox="0 0 24 24"
@@ -363,7 +363,7 @@ export default function Navbar() {
                                     onClick={() =>
                                         setMdOptionsToggle(!mdOptionsToggle)
                                     }
-                                    className="text-black dark:text-white dark:hover:text-gray-300 hidden md:flex focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                                    className="hidden text-black rounded dark:text-white dark:hover:text-gray-300 md:flex focus:outline-none focus:ring-2 focus:ring-gray-600"
                                 >
                                     <svg
                                         className="fill-stroke"
@@ -399,7 +399,7 @@ export default function Navbar() {
                                 <button
                                     aria-label="open menu"
                                     onClick={() => setShowMenu(true)}
-                                    className="text-black dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                                    className="text-black rounded dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 focus:ring-gray-600"
                                 >
                                     <svg
                                         className="fill-stroke"
@@ -443,7 +443,7 @@ export default function Navbar() {
                         showMenu ? "flex" : "hidden"
                     } absolute z-10 inset-0 md:hidden bg-white flex-col`}
                 >
-                    <div className="flex items-center py-4 justify-between border-b border-gray-200 dark:border-gray-700 px-6 bg-secondary">
+                    <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-secondary">
                         <div className="flex items-center gap-4 space-x- bg-secondary">
                             <div>
                                 <svg
@@ -477,18 +477,17 @@ export default function Navbar() {
                                     value={form1Data.search}
                                     onChange={handleForm1Change}
                                     placeholder="Cari Buku atau Penulis"
-                                    className="text-sm text-white bg-secondary  placeholder-whi
-                                    te dark:placeholder-gray-300 focus:outline-none rounded-md border-collapse border-white w-full h-7"
+                                    className="w-full text-sm text-white border-collapse border-white rounded-md bg-secondary placeholder-whi te dark:placeholder-gray-300 focus:outline-none h-7"
                                 />
                             </form>
                         </div>
                         <button
                             onClick={() => setShowMenu(false)}
                             aria-label="close menu"
-                            className="focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
+                            className="rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
                         >
                             <svg
-                                className=" lg:w-6 lg:h-6 w-4 h-4"
+                                className="w-4 h-4  lg:w-6 lg:h-6"
                                 viewBox="0 0 26 26"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -520,10 +519,10 @@ export default function Navbar() {
                         {/* Cross button Code  */}
                         <div
                             onClick={() => setShowfilters(false)}
-                            className=" cursor-pointer absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4 z-99"
+                            className="absolute top-0 right-0 px-4 cursor-pointer  md:py-10 lg:px-20 md:px-6 py-9 z-99"
                         >
                             <svg
-                                className=" lg:w-6 lg:h-6 w-4 h-4"
+                                className="w-4 h-4  lg:w-6 lg:h-6"
                                 viewBox="0 0 26 26"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -554,11 +553,11 @@ export default function Navbar() {
                             <li className="">
                                 <button
                                     onClick={() => setShowfilters(!showFilters)}
-                                    className="dark:text-white overflow-hidden space-x-2 sm:hidden py-4 pb-0 w-full flex text-base leading-4 font-normal text-white items-center"
+                                    className="flex items-center w-full py-4 pb-0 space-x-2 overflow-hidden text-base font-normal leading-4 text-white dark:text-white sm:hidden"
                                 >
                                     <div className="text-center">
                                         <svg
-                                            className=" m-2"
+                                            className="m-2 "
                                             width="19"
                                             height="19"
                                             viewBox="0 0 24 24"
@@ -630,13 +629,13 @@ export default function Navbar() {
                                             />
                                         </svg>
                                     </div>
-                                    <div className="text-sm m-0">Filters</div>
+                                    <div className="m-0 text-sm">Filters</div>
                                 </button>
                                 <Link href={route("user.info")}>
-                                    <button className="dark:text-white flex overflow-hidden space-x-2 sm:hidden py-4 w-full flex text-base leading-4 font-normal text-white items-center">
+                                    <button className="flex items-center w-full py-4 space-x-2 overflow-hidden text-base font-normal leading-4 text-white dark:text-white sm:hidden">
                                         <div className="text-center">
                                             <svg
-                                                className="fill-stroke m-2"
+                                                className="m-2 fill-stroke"
                                                 width="19"
                                                 height="19"
                                                 viewBox="0 0 24 24"
@@ -678,10 +677,10 @@ export default function Navbar() {
                         {/* Cross button Code  */}
                         <div
                             onClick={() => setShowfilters(false)}
-                            className=" cursor-pointer absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4 z-99"
+                            className="absolute top-0 right-0 px-4 cursor-pointer  md:py-10 lg:px-20 md:px-6 py-9 z-99"
                         >
                             <svg
-                                className=" lg:w-6 lg:h-6 w-4 h-4"
+                                className="w-4 h-4  lg:w-6 lg:h-6"
                                 viewBox="0 0 26 26"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -703,12 +702,12 @@ export default function Navbar() {
                             </svg>
                         </div>
 
-                        {/* <hr className=" bg-gray-200 lg:w-6/12 w-full md:my-10 my-8" /> */}
+                        {/* <hr className="w-full my-8 bg-gray-200  lg:w-6/12 md:my-10" /> */}
 
                         {/* Material Section */}
                         <div>
                             <Link href={route("user.info")}>
-                                <div className=" flex space-x-2">
+                                <div className="flex space-x-2 ">
                                     <svg
                                         width="24"
                                         height="24"
@@ -731,13 +730,13 @@ export default function Navbar() {
                                             strokeLinejoin="round"
                                         />
                                     </svg>
-                                    <p className=" lg:text-2xl text-xl lg:leading-6 leading-5 font-Dipinjam text-secondary ">
+                                    <p className="text-xl leading-5  lg:text-2xl lg:leading-6 font-Dipinjam text-secondary">
                                         Kategori Buku
                                     </p>
                                 </div>
                             </Link>
-                            <div className=" md:flex md:space-x-6 mt-8 grid grid-cols-3 gap-y-8 flex-wrap">
-                                <div className=" flex space-x-2 md:justify-center md:items-center items-center justify-start">
+                            <div className="grid flex-wrap grid-cols-3 mt-8  md:flex md:space-x-6 gap-y-8">
+                                <div className="flex items-center justify-start space-x-2  md:justify-center md:items-center">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -747,10 +746,10 @@ export default function Navbar() {
                                         checked={data.Fiksi}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Fiksi"
                                             >
                                                 Fiksi
@@ -758,7 +757,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -768,10 +767,10 @@ export default function Navbar() {
                                         checked={data.NoFiksi}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="NoFiksi"
                                             >
                                                 Non Fiksi
@@ -779,7 +778,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex space-x-2 md:justify-center md:items-center items-center justify-end">
+                                <div className="flex items-center justify-end space-x-2  md:justify-center md:items-center">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -789,10 +788,10 @@ export default function Navbar() {
                                         checked={data.Novel}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Novel"
                                             >
                                                 Novel
@@ -800,7 +799,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex space-x-2 md:justify-center md:items-center items-center justify-start">
+                                <div className="flex items-center justify-start space-x-2  md:justify-center md:items-center">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -810,10 +809,10 @@ export default function Navbar() {
                                         checked={data.Biografi}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Biografi"
                                             >
                                                 Biografi
@@ -821,7 +820,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -831,10 +830,10 @@ export default function Navbar() {
                                         checked={data.Sejarah}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Sejarah"
                                             >
                                                 Sejarah
@@ -842,7 +841,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -852,10 +851,10 @@ export default function Navbar() {
                                         checked={data.Sains}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Sains"
                                             >
                                                 Sains
@@ -863,7 +862,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -873,10 +872,10 @@ export default function Navbar() {
                                         checked={data.Pendidikan}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Pendidikan"
                                             >
                                                 Pendidikan
@@ -884,7 +883,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -894,10 +893,10 @@ export default function Navbar() {
                                         checked={data.Sastra}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Sastra"
                                             >
                                                 Sastra
@@ -905,7 +904,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -915,10 +914,10 @@ export default function Navbar() {
                                         checked={data.Bisnis}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Bisnis"
                                             >
                                                 Bisnis
@@ -926,7 +925,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -936,10 +935,10 @@ export default function Navbar() {
                                         checked={data.Teknologi}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Teknologi"
                                             >
                                                 Teknologi
@@ -947,7 +946,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -957,10 +956,10 @@ export default function Navbar() {
                                         checked={data.Seni}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Seni"
                                             >
                                                 Seni
@@ -968,7 +967,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -978,10 +977,10 @@ export default function Navbar() {
                                         checked={data.Hobi}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Hobi"
                                             >
                                                 Hobi
@@ -989,7 +988,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -999,10 +998,10 @@ export default function Navbar() {
                                         checked={data.Anak}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Anak"
                                             >
                                                 Anak Anak
@@ -1010,7 +1009,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -1020,10 +1019,10 @@ export default function Navbar() {
                                         checked={data.Remaja}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Remaja"
                                             >
                                                 Remaja
@@ -1031,7 +1030,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -1041,10 +1040,10 @@ export default function Navbar() {
                                         checked={data.Dewasa}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Dewasa"
                                             >
                                                 Dewasa
@@ -1055,11 +1054,11 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        <hr className=" bg-gray-200 lg:w-6/12 w-full md:my-10 my-8" />
+                        <hr className="w-full my-8 bg-gray-200  lg:w-6/12 md:my-10" />
 
                         {/* Size Section */}
                         <div>
-                            <div className=" flex space-x-2">
+                            <div className="flex space-x-2 ">
                                 <svg
                                     width="24"
                                     height="24"
@@ -1117,12 +1116,12 @@ export default function Navbar() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <p className="  lg:text-2xl text-xl lg:leading-6 leading-5 font-Dipinjam text-secondary ">
+                                <p className="text-xl leading-5  lg:text-2xl lg:leading-6 font-Dipinjam text-secondary">
                                     Status
                                 </p>
                             </div>
-                            <div className=" md:flex md:space-x-6 mt-8 grid grid-cols-3 gap-y-8 flex-wrap">
-                                <div className=" flex md:justify-center md:items-center items-center justify-start ">
+                            <div className="grid flex-wrap grid-cols-3 mt-8  md:flex md:space-x-6 gap-y-8">
+                                <div className="flex items-center justify-start  md:justify-center md:items-center">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -1132,10 +1131,10 @@ export default function Navbar() {
                                         checked={data.Dijual}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Dijual"
                                             >
                                                 Dijual
@@ -1143,7 +1142,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=" flex justify-center items-center ">
+                                <div className="flex items-center justify-center ">
                                     <input
                                         className="w-4 h-4 mr-2"
                                         type="checkbox"
@@ -1153,10 +1152,10 @@ export default function Navbar() {
                                         checked={data.Dipinjam}
                                         onChange={changeHandler}
                                     />
-                                    <div className=" inline-block">
-                                        <div className=" flex space-x-6 justify-center items-center">
+                                    <div className="inline-block ">
+                                        <div className="flex items-center justify-center space-x-6 ">
                                             <label
-                                                className=" mr-2 text-sm leading-3 font-normal text-gray-600"
+                                                className="mr-2 text-sm font-normal leading-3 text-gray-600 "
                                                 htmlFor="Dipinjam"
                                             >
                                                 Dipinjam
@@ -1166,19 +1165,19 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div>
-                        <div className="px-0 mt-10 w-full hidden md:flex lg:flex md:w-auto md:mt-0 md:absolute md:right-0 md:bottom-0 md:py-10 lg:px-20 md:px-6">
+                        <div className="hidden w-full px-0 mt-10 md:flex lg:flex md:w-auto md:mt-0 md:absolute md:right-0 md:bottom-0 md:py-10 lg:px-20 md:px-6">
                             <button
                                 // onClick={applyFilters}
-                                className="w-full hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-secondary text-base leading-4 font-Dipinjam py-4 px-10 text-white bg-secondary"
+                                className="w-full px-10 py-4 text-base leading-4 text-white hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-secondary font-Dipinjam bg-secondary"
                             >
                                 Apply Filter
                             </button>
                         </div>
-                        <div className="px-0 mt-10 w-full md:bottom-0 md:hidden lg:hidden  md:py-10 lg:px-20 md:px-6">
+                        <div className="w-full px-0 mt-10 md:bottom-0 md:hidden lg:hidden md:py-10 lg:px-20 md:px-6">
                             <button
                                 // onClick={applyFilters}
                                 type="submit"
-                                className="w-full hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-secondary text-base leading-4 font-Dipinjam py-4 px-10 text-white bg-secondary"
+                                className="w-full px-10 py-4 text-base leading-4 text-white hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-secondary font-Dipinjam bg-secondary"
                             >
                                 Apply Filter
                             </button>

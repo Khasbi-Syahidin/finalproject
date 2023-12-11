@@ -31,10 +31,10 @@ export default function Sidebar({ showMenu, page }) {
             }`}
         >
             {/* <aside className="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-50 xl:bg-transparent"> */}
-            <div className="h-12 flex justify-center">
-                <div className="flex pl-3 items-center mb-6 xl:mb-0 lg:mb-0 justify-center">
+            <div className="flex justify-center h-12">
+                <div className="flex items-center justify-center pl-3 mb-6 xl:mb-0 lg:mb-0">
                     <img
-                        src='/storage/image/logo_perpusku2.png'
+                        src='/image/logo_perpusku2.png'
                         alt=""
                         className="w-20 my-auto drop-shadow-xl"
                     />
