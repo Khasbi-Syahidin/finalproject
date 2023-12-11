@@ -87,7 +87,7 @@ export default function CekTransaksi({ cekData }) {
                                 <div className="sm:flex justify-between">
                                     <div>
                                         <img
-                                            src={`/storage/image/logo_perpusku.png`}
+                                            src='/storage/image/logo_perpusku.png'
                                             alt=""
                                             className="w-24"
                                         />

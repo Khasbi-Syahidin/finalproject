@@ -244,7 +244,7 @@ export default function Navbar() {
                 <div className="dark:bg-secondary bg-gray-50 px-6 py-2">
                     <div className="lg:container mx-auto flex items-center justify-between">
                         <img
-                            src={`/storage/image/logo_perpusku1.png`}
+                            src='/storage/image/logo_perpusku1.png'
                             alt=""
                             className="w-20"
                         />

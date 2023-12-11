@@ -34,7 +34,7 @@ export default function Sidebar({ showMenu, page }) {
             <div className="h-12 flex justify-center">
                 <div className="flex pl-3 items-center mb-6 xl:mb-0 lg:mb-0 justify-center">
                     <img
-                        src={`/storage/image/logo_perpusku2.png`}
+                        src='/storage/image/logo_perpusku2.png'
                         alt=""
                         className="w-20 my-auto drop-shadow-xl"
                     />
